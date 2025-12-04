@@ -1,0 +1,57 @@
+═══════════════════════════════════════════════════════════════════════
+   CUBESAT BEHAVIOR PARAMETERS - REQUIRED SETTINGS
+═══════════════════════════════════════════════════════════════════════
+
+SELECT: CubeSat (in Hierarchy)
+FIND: Behavior Parameters (in Inspector)
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ Behavior Parameters                                                 │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  Behavior Type: Heuristic Only                                      │
+│  Behavior Name: CubeSat                                             │
+│  Model: None                                                        │
+│                                                                     │
+│  ┌─ Vector Observation ─────────────────────────────────────────┐  │
+│  │                                                              │  │
+│  │  Space Size: 25          ◄─── CHANGE FROM 16 TO 25          │  │
+│  │  Stacked Vectors: 1                                          │  │
+│  │                                                              │  │
+│  └──────────────────────────────────────────────────────────────┘  │
+│                                                                     │
+│  ┌─ Actions ─────────────────────────────────────────────────────┐ │
+│  │                                                              │  │
+│  │  Continuous Actions: 4   ◄─── CHANGE FROM 3 TO 4            │  │
+│  │  Discrete Branches                                           │  │
+│  │    Size: 0                                                   │  │
+│  │                                                              │  │
+│  └──────────────────────────────────────────────────────────────┘  │
+│                                                                     │
+│  Use Child Sensors: ☑                                              │
+│  Use Child Actuators: ☑                                            │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════
+   WHY THESE VALUES?
+═══════════════════════════════════════════════════════════════════════
+
+Vector Observation Space Size: 25
+─────────────────────────────────
+  Position (3) + Velocity (3) + Angular Velocity (3) +
+  Forward (3) + Up (3) + Goal Position (3) +
+  Goal Direction (3) + Goal Distance (1) + Local Goal (3) = 25 total
+
+Continuous Actions: 4
+────────────────────
+  [0] Thrust (forward/backward)
+  [1] Pitch (rotation around X-axis)
+  [2] Yaw (rotation around Y-axis)
+  [3] Roll (rotation around Z-axis)
+
+═══════════════════════════════════════════════════════════════════════
+
+SAVE SCENE AFTER CHANGING: Ctrl+S (Windows) or Cmd+S (Mac)
+
+═══════════════════════════════════════════════════════════════════════

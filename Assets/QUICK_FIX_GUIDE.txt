@@ -1,0 +1,92 @@
+═══════════════════════════════════════════════════════════════
+   QUICK FIX GUIDE - 3 Steps to Get Your Scene Working
+═══════════════════════════════════════════════════════════════
+
+You're 95% done! Just need to fix 3 things:
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 1: CREATE & ASSIGN TAGS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+A) Create the tags:
+   1. Edit → Project Settings → Tags and Layers
+   2. Click + button three times
+   3. Add: "Asteroid", "Goal", "Player"
+   4. Close window
+
+B) Assign tags to GameObjects:
+   1. Click "CubeSat" in Hierarchy
+      → Inspector top: Tag dropdown → "Player"
+   
+   2. Click "Goal" in Hierarchy
+      → Inspector top: Tag dropdown → "Goal"
+   
+   3. In PROJECT window, go to Assets/Prefab/
+      → Click "Asteroid_Prefab" (don't double-click)
+      → Inspector top: Tag dropdown → "Asteroid"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 2: ADD RIGIDBODY TO ASTEROID PREFAB
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   1. In PROJECT window → Assets/Prefab/
+   2. DOUBLE-CLICK "Asteroid_Prefab" (enters Prefab Mode)
+   3. In Inspector → Add Component
+   4. Type "Rigidbody" → Add it
+   5. Configure:
+      ☐ Use Gravity = OFF (uncheck)
+      ☑ Is Kinematic = ON (check)
+      Mass = 100
+      Drag = 0
+      Angular Drag = 0.05
+   6. Top-left: Click < arrow to exit Prefab Mode
+   7. File → Save (or Ctrl+S)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 3: SET VECTOR OBSERVATION SIZE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   1. Click "CubeSat" in Hierarchy
+   2. In Inspector, find "Behavior Parameters" component
+   3. Expand "Vector Observation" section
+   4. Set "Space Size" = 16
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VERIFICATION (OPTIONAL BUT RECOMMENDED)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Create a validator GameObject:
+   1. Hierarchy → Right-click → Create Empty
+   2. Name it "Validator"
+   3. Add Component → "SceneSetupValidator"
+   4. Drag these into the Inspector fields:
+      - CubeSat → CubeSat
+      - Goal → Goal
+      - Asteroid Prefab → drag from Project window
+      - Asteroid Spawner → AsteroidSpawner
+      - Telemetry UI → TelemetryManager
+   5. Right-click component → "Validate Scene Setup"
+   6. Check Console - should see green checkmarks ✓
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TEST IT!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+   1. Select CubeSat
+   2. Behavior Parameters → Behavior Type = "Heuristic Only"
+   3. Press PLAY ▶
+   4. Use WASD / Arrow Keys + Space/Shift to fly
+   5. Watch the Telemetry UI update!
+   6. Try hitting an asteroid → should restart
+   7. Try reaching the green Goal → should restart
+
+Expected in Console when playing:
+   ✓ No errors
+   ✓ "Active" status appears
+   ✓ Asteroids spawn message
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+THAT'S IT! If all 3 steps are done, everything will work! 🚀
+
+For detailed explanations, see: ISSUES_AND_FIXES.md
