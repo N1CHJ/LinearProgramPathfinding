@@ -1,2 +1,4 @@
-# LinearProgramPathfinding
-Unity-based pathfinding simulation that solves grid navigation using Linear Programming (LP) formulations. Demonstrates the mathematical link between Minimum Cost Network Flow, Duality, and Dijkstra's Algorithm.
+
+# Linear Programming Pathfinding in Unity
+
+A technical demonstration connecting Control Theory/Optimization with Game AI. This project implements pathfinding not just as a search algorithm, but as a Minimum Cost Network Flow problem solved via Linear Programming.
